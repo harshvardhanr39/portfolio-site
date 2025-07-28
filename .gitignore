@@ -1,0 +1,72 @@
+echo "
+# Node modules
+frontend/node_modules/
+backend/__pycache__/
+*.pyc
+
+# Python virtualenv
+venv/
+
+# Environment files
+.env
+.env.local
+
+# Docker
+*.log
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+*.sqlite3
+.DS_Store
+
+# System files
+.vscode/
+" >> .gitignore
+
+# Node modules
+frontend/node_modules/
+backend/__pycache__/
+*.pyc
+
+# Python virtualenv
+venv/
+
+# Environment files
+.env
+.env.local
+
+# Docker
+*.log
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+*.sqlite3
+.DS_Store
+
+# System files
+.vscode/
+
+
+# Node modules
+frontend/node_modules/
+backend/__pycache__/
+*.pyc
+
+# Python virtualenv
+venv/
+
+# Environment files
+.env
+.env.local
+
+# Docker
+*.log
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+*.sqlite3
+.DS_Store
+
+# System files
+.vscode/
+
