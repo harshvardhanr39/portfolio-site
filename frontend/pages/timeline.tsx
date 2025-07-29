@@ -45,7 +45,12 @@ export default function Timeline() {
 
   return (
     <Layout>
-      
+       <SectionWrapper>
+          <h1 className="text-4xl font-bold text-accent mb-4">Resume</h1>
+          <p className="text-textSecondary">
+            This section is under construction. Stay tuned!
+          </p>
+        </SectionWrapper>
     </Layout>
   );
 }
