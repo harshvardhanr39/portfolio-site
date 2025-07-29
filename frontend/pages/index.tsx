@@ -1,154 +1,209 @@
-'use client';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { FaBars } from 'react-icons/fa';
-import {
-  FcClock,
-  FcBriefcase,
-  FcContacts,
-  FcFile,
-  FcCalendar,
-  FcAbout,
-} from 'react-icons/fc';
 
-import BackgroundIcons from '@/components/BackgroundTechIcons';
+import SectionWrapper from '@/components/SectionWrapper';
+import Layout from '@/components/Layout';
+import Button from '@/components/Button';
 
 export default function Home() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
-  const navItems = [
-    { icon: <FcAbout size={20} />, label: 'About Me', href: '/AboutMe' },
-    { icon: <FcClock  size={20} />, label: 'Timeline', href: '/timeline' },
-    { icon: <FcBriefcase size={20}/>, label: 'Projects', href: '/projects' },
-    { icon: <FcFile size={20}/>, label: 'Resume', href: '/resume' },
-    { icon: <FcContacts size={20}/>, label: 'Contact', href: '/contact' },
-    { icon: <FcCalendar size={20}/>, label: 'Schedule', href: '/schedule' },
-  ];
+  
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true });
 
   return (
-    <div className="flex h-screen overflow-hidden">
-      {/* Sidebar */}
-      <aside
-        className="bg-gray-100 border-r border-gray-300 p-4 transition-all duration-300 z-30 shadow-md"
-        style={{ width: isSidebarOpen ? '180px' : '60px' }}
-      >
-        <button
-          className="mb-10 text-black hover:text-white"
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        >
-          <FaBars size={28} />
-        </button>
-
-        <nav className="flex flex-col gap-4">
-          {navItems.map((item, index) => (
-            <Link
-              key={index}
-              href={item.href}
-              className="flex items-center gap-4 text-xs hover:text-blue-600 transition-colors duration-200"
-            >
-              {item.icon}
-              <span
-                className={`transition-opacity duration-200 ease-in-out ${
-                  isSidebarOpen ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'
-                }`}
-              >
-                {item.label}
-              </span>
-            </Link>
-          ))}
-        </nav>
-      </aside>
-
-      {/* Content Area */}
-      <div className="relative flex-1 overflow-auto p-6 sm:p-10 md:p-16 xl:p-20">
-        {/* Blog Section (Right Fixed) */}
-        <section className="hidden lg:block fixed top-10 right-6 w-72 xl:w-80 z-10">
-          <div className="flex flex-col gap-3 animate-scroll-vertical max-h-80 overflow-hidden">
-            {[1, 2, 3].map((id) => (
-              <div 
-                key={id} 
-                className="bg-gray-50 p-3 rounded-lg shadow-sm border"
-              >
-                <h4 className="text-base font-medium text-blue-700">
-                  Blog Post Title {id}
-                </h4>
-                <p className="text-xs text-gray-600 mt-1">
-                  This is a short snippet from the blog post number {id}...{' '}
-                  <span className="text-blue-600 cursor-pointer hover:underline">
-                    Read more
-                  </span>
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-
-        {/* Main Content */}
-        <main className="max-w-7xl mx-auto">
-          <section className="flex flex-col lg:flex-row items-center justify-center gap-10 mb-20">
-            {/* Avatar with Circle */}
-            <div className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-64 md:h-64">
-              {/* Decorative Circle */}
-              <div className="absolute inset-0 rounded-full bg-blue-100 animate-pulse" />
-              {/* Actual Avatar */}
+    <Layout>
+      {/* Avatar Circle */}
+      <div className="top-6 text-center relative">
+        <div className="relative w-40 h-40 mx-auto mb-[-25px] z-20">
+          <div className="w-full h-full rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden relative">
+            <div className="relative w-40 h-40 rounded-full overflow-hidden -top-0">
               <Image
-                src="/images/Avatar_2.png"
-                alt="Harshvardhan Singh Rathore"
-                layout="fill"
-                className="rounded-full object-cover relative z-10"
+                src="/images/profile-pic.png"
+                alt="Harshvardhan Avatar"
+                fill
+                className="object-cover"
               />
             </div>
-            {/* Summary */}
-            <div className="text-left max-w-2xl">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl  font-bold text-gray-800 mb-6">
-                Harshvardhan Singh Rathore
-              </h1>
-              <motion.p
-                className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed font-light"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <h1 className="text-4xl font-extrabold mb-4">Harshvardhan Singh Rathore</h1>
+          <h2 className="text-2xl font-medium">Data Engineer | Cloud | AI Enthusiast</h2>
+          {/* 🧠 Summary */}
+          <p className="max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+            Passionate Data Engineer with a background in Computer Science and Management Engineering.
+            I specialize in building scalable data pipelines, cloud-native architectures, and AI-powered analytics
+            to drive business decisions. Currently expanding my expertise through Le Wagon's AI Bootcamp.
+          </p>
+          <div className="flex justify-center mt-14">
+            <Link href="/timeline">
+              <Button>
+                View Timeline →
+              </Button>
+            </Link>
+        </div>
+        </div>  
+      </div>
+
+      {/* 🚀 Featured Projects Section */}
+      <SectionWrapper>
+        <div className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-16 mb-10">
+          <h2 className="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-gray-100">
+            Featured Projects
+          </h2>
+          <p className="text-textSecondary text-center max-w-2xl mx-auto mb-6">
+            Tools and technologies I’ve worked with across Data Engineering, Analytics, and Science — along with domains I’ve built impact in.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6">
+            {[1, 2, 3].map((i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
               >
-                I’m Harshvardhan, a dedicated Data Engineer passionate about building
-                scalable data systems and working with cloud infrastructure. I specialize
-                in Python, SQL, and modern ETL tools to turn raw data into valuable
-                insights.
-              </motion.p>
+                {/* Image with hover zoom */}
+                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
+                  <Image
+                    src={`/images/project/project-${i}.png`}
+                    alt={`Project ${i}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                  />
+                </div>
+
+                <h4 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
+                  Project Title {i}
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  A short summary of what this project does and its impact. Built with modern technologies and best practices.
+                </p>
+                <Link
+                  href={`/projects/project-${i}`}
+                  className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+                >
+                  View more →
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="flex justify-center mt-14">
+            <Link href="/projects">
+              <Button>
+                View All Projects →
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* Skills Section */}
+      <SectionWrapper>
+        {/* Title and Intro */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-accent mb-4">Skills & Experience</h2>
+          <p className="text-textSecondary max-w-2xl mx-auto">
+            Tools and technologies I’ve worked with across Data Engineering, Analytics, and Science — along with domains I’ve built impact in.
+          </p>
+        </div>
+
+        {/* Technologies Grid */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 justify-items-center mb-20">
+          {[
+            '/icons/python.svg',
+            '/icons/sql.svg',
+            '/icons/postgresql.svg',
+            '/icons/aws.svg',
+            '/icons/gcp.svg',
+            '/icons/powerbi.svg',
+            '/icons/tableau.svg',
+            '/icons/docker.svg',
+            '/icons/fastapi.svg',
+            '/icons/pandas.svg',
+            '/icons/sklearn.svg',
+            '/icons/nextjs.svg',
+          ].map((src, idx) => (
+            <div
+              key={idx}
+              className="w-16 h-16 flex items-center justify-center rounded-xl shadow-md bg-white/70 dark:bg-white/10 backdrop-blur-sm transition-transform hover:scale-110 hover:shadow-lg"
+            >
+              <img src={src} alt="tech" className="h-10 w-10 object-contain" />
             </div>
-          </section>
-        </main>
+          ))}
+        </div>
+
+        {/* Resume Button */}
+        <div className="text-center mb-10">
+          <Button href="/resume">View My Resume</Button>
+        </div>
 
 
-        {/* Projects Section */}
-        <section className="absolute bottom-0 left-0 w-full bg-white px-4 sm:px-8 py-4 border-t">
-          <h3 className="text-lg sm:text-xl font-semibold mb-4 text-gray-800">Projects</h3>
-          <div className="overflow-x-auto whitespace-nowrap space-x-4 flex animate-scroll-horizontal">
-            {[1, 2, 3, 4, 5].map((id) => (
-              <div
-                key={id}
-                className="inline-block bg-white rounded-lg shadow-md w-40 sm:w-44 md:w-48 min-w-[10rem] flex-shrink-0"
-              >
-                <img
-                  src={`/images/project-${id}.jpg`}
-                  alt={`Project ${id}`}
-                  className="w-full h-20 sm:h-24 object-cover rounded-t-lg"
-                />
-                <div className="p-2">
-                   <h4 className="text-sm sm:text-base font-medium text-gray-800">
-                      Project {id}
-                    </h4>
-                  </div>
+        {/* Experience Section */}
+        <div className="flex flex-col items-center gap-10 mb-20">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
+            {[
+              {
+                title: 'Data Engineering',
+                description: 'Built scalable ETL pipelines, automated workflows, and migrated infrastructure to cloud platforms.',
+                icon: '/icons/etl.svg',
+              },
+              {
+                title: 'Data Analytics',
+                description: 'Created dashboards, ran KPI tracking, and improved reporting workflows using Power BI and Tableau.',
+                icon: '/icons/analytics.svg',
+              },
+              {
+                title: 'Data Science',
+                description: 'Worked on predictive modeling, classification tasks, and advanced ML pipelines using Python.',
+                icon: '/icons/ai.svg',
+              },
+            ].map((exp, idx) => (
+              <div key={idx} className="text-center max-w-xs mx-auto">
+                <img src={exp.icon} alt={exp.title} className="h-12 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold text-accent mb-2">{exp.title}</h3>
+                <p className="text-textSecondary text-sm">{exp.description}</p>
               </div>
             ))}
           </div>
-        </section>
 
-      </div>
-    </div>
+          {/* Second row with 2 cards, center-aligned */}
+          <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-12 mt-4">
+            {[
+              {
+                title: 'Business Analytics',
+                description: 'Collaborated with business teams to drive strategic decisions through data storytelling.',
+                icon: '/icons/strategy.svg',
+              },
+              {
+                title: 'Mentorship & Training',
+                description: 'Mentored peers and juniors in Python, SQL, and Data Science at work and bootcamp.',
+                icon: '/icons/mentor.svg',
+              },
+            ].map((exp, idx) => (
+              <div key={idx} className="text-center max-w-xs mx-auto">
+                <img src={exp.icon} alt={exp.title} className="h-12 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold text-accent mb-2">{exp.title}</h3>
+                <p className="text-textSecondary text-sm">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
+
+        {/* Contact Button */}
+        <div className="text-center">
+          <Button href="/contact">Get in Touch</Button>
+        </div>
+
+      </SectionWrapper>
+
+    </Layout>
   );
 }
