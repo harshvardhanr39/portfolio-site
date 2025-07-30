@@ -6,7 +6,7 @@
 :root {
   --background: #ffffff;
   --primary: #1f2937;     /* Blue */
-  --accent: #2563eb;      /* Green */
+  --accent: #a78bfa;      /* Green */
   --text: #000000;
 }
 
@@ -15,7 +15,7 @@
   :root {
     --background: #ffffff;
     --primary: #1f2937;    /* Green */
-    --accent: #2563eb;     /* Blue */
+    --accent: #634ba6;     /* Blue */
     --text: #000000;
   }
 }
@@ -27,6 +27,7 @@ body {
   font-family: 'Inter', sans-serif;
   transition: background-color 0.3s, color 0.3s;
 }
+
 
 @keyframes scroll-horizontal {
   0% { transform: translateX(0); }

@@ -14,7 +14,7 @@ export default function AtomBackground() {
       id="global-atom-bg"
       init={particlesInit}
       options={{
-        fullScreen: { enable: false },
+        fullScreen: { enable: true },
         background: { color: 'gray' },
         particles: {
           number: { value: 50 },
@@ -23,14 +23,13 @@ export default function AtomBackground() {
           opacity: { value: 0.5 },
           links: {
             enable: true,
-            distance: 120,
             color: '#aaa',
             opacity: 0.5,
             width: 1,
           },
           move: {
             enable: true,
-            speed: 0.6,
+            speed: 0.5,
             outMode: 'bounce',
           },
         },

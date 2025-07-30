@@ -140,8 +140,10 @@ export default function Home() {
         </div>
 
         {/* Resume Button */}
-        <div className="text-center mb-10">
-          <Button href="/resume">View My Resume</Button>
+        <div className="flex justify-center mt-14 mb-10">
+          <Link href="/resume">
+            <Button>View My Resume</Button>
+          </Link>
         </div>
 
 
@@ -198,8 +200,10 @@ export default function Home() {
 
 
         {/* Contact Button */}
-        <div className="text-center">
-          <Button href="/contact">Get in Touch</Button>
+        <div className="flex justify-center mt-14">
+          <Link href="/contact">
+            <Button>Get in Touch</Button>
+          </Link>
         </div>
 
       </SectionWrapper>
