@@ -20,6 +20,8 @@
 # production
 /build
 
+/frontend/public/
+
 # misc
 .DS_Store
 *.pem
