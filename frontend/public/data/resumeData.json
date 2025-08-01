@@ -1,0 +1,86 @@
+{
+  "name": "Harshvardhan Singh Rathore",
+  "title": "Data Analyst",
+  "location": "Paris, France",
+  "email": "harshvardhanr391@gmail.com",
+  "phone": "+33 (0) 7 52 23 95 52",
+  "linkedin": "https://www.linkedin.com/in/hvsr/",
+  "summary": "Data professional with 4+ years of experience ...",
+  "skills": {
+    "Programming": ["Python", "Javascript", "SQL", "Git", "Bash", "Excel VBA"],
+    "Cloud & Big Data": ["AWS (S3, Lambda, EMR, EC2, Glue, Step Functions)"],
+    "Data Analysis": ["ETL", "Advanced Excel", "Data Wrangling", "Statistical Analysis", "KPI Tracking"],
+    "Statistical Techniques": ["Hypothesis Testing", "Regression", "A/B Testing", "Data Mining"],
+    "Data Visualization": ["Tableau", "Power BI", "Matplotlib", "Seaborn"],
+    "Soft Skills": ["Communication", "Stakeholder Management", "Problem Solving", "Critical Thinking", "Project Management"],
+    "Languages": ["English (Fluent)", "Hindi (Native)", "French (B1)"]
+  },
+  "experience": [
+    {
+      "title": "Business Process Expert",
+      "company": "Dassault Systemes",
+      "period": "Jul 2021 – Current",
+      "points": [
+        "Designed and deployed data-driven dashboards...",
+        "Applied statistical modeling (regression, normalization)..."
+      ]
+    },
+    {
+      "title": "Data Analyst",
+      "company": "Dassault Systemes",
+      "period": "Jan 2021 – Jul 2021",
+      "points": [
+        "Automated a real estate financial modeling tool...",
+        "Redesigned the tool’s architecture..."
+      ]
+    },
+    {
+      "title": "Software Development Intern",
+      "company": "ENSISA",
+      "period": "Jan 2016 – Mar 2016",
+      "points": [
+        "Designed and implemented a solution for the Rush Hour puzzle..."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bootcamp – Data Science and AI",
+      "institution": "Le Wagon",
+      "period": "2024 – 25"
+    },
+    {
+      "degree": "MS in Management Engineering",
+      "institution": "Audencia Business School",
+      "period": "2019 – 21"
+    },
+    {
+      "degree": "BTech in Computer Science",
+      "institution": "BK Birla Institute of Engineering & Technology",
+      "period": "2013 – 17"
+    }
+  ],
+  "certifications": [
+    "IS Requirement Management – Dassault Systemes (2023)",
+    "IT-IS Data Management – Dassault Systemes (2021)",
+    "Tableau Essential Training – LinkedIn (2020)",
+    "Excel VBA: Process Modeling – LinkedIn (2020)"
+  ],
+  "projects": [
+    {
+      "name": "Rush Hour Solver (Internship in France)",
+      "details": "Designed and developed solution using C++ and SDL 2.0"
+    },
+    {
+      "name": "Freelance Data Analyst (Fiverr)",
+      "details": "Completed over 20+ projects"
+    }
+  ],
+  "awards": [
+    "3DS Innovation Forward Award (2022)",
+    "3rd Best Entrepreneurial Project – Audencia (2019)",
+    "Microsoft Student Partner (2016)",
+    "Poster Presentation – International Conference on Communication System (2015)"
+  ],
+  "interests": ["Basketball", "Skiing", "Scuba Diving (N2)", "Travelling"]
+}
