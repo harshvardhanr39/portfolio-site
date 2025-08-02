@@ -117,42 +117,62 @@ export default function ResumePage() {
 
             {/* Experience */}
             <SectionCard icon={<FaBriefcase />} title="Experience">
-              {resume.experience.map((exp, i) => (
-                <div key={i} className="mb-6">
-                  <h3 className="text-lg font-semibold text-accent">{exp.title}</h3>
-                  <p className="text-sm text-textSecondary font-medium">{exp.company} • {exp.period}</p>
-                  <ul className="list-disc list-inside mt-2 space-y-1 text-sm text-textSecondary">
-                    {exp.points.map((pt, idx) => (
-                      <li key={idx}>{pt}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              <div className="space-y-6">
+                {resume.experience.map((exp, i) => (
+                  <div key={i} className="p-4 rounded-lg bg-muted/50 border border-borderSecondary">
+                    <div className="flex justify-between flex-wrap items-center mb-1">
+                      <h3 className="text-lg font-semibold text-accent">{exp.title}</h3>
+                      <span className="text-xs bg-background border border-borderSecondary px-2 py-1 rounded text-textSecondary">
+                        {exp.period}
+                      </span>
+                    </div>
+                    <p className="text-sm text-textSecondary mb-2">{exp.company}</p>
+                    <ul className="space-y-1 text-sm text-textSecondary list-inside list-disc ml-4">
+                      {exp.points.map((pt, idx) => (
+                        <li key={idx}>{pt}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </SectionCard>
+
 
             {/* Education */}
             <SectionCard icon={<FaGraduationCap />} title="Education">
-              <ul className="space-y-3 text-sm text-textSecondary">
+              <ul className="space-y-4 text-sm text-textSecondary">
                 {resume.education.map((edu, i) => (
-                  <li key={i}>
-                    <strong>{edu.degree}</strong> – {edu.institution}{' '}
-                    <span className="block italic">{edu.period}</span>
+                  <li key={i} className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-borderSecondary pb-2">
+                    <div>
+                      <span className="font-semibold text-textPrimary">{edu.degree}</span> – {edu.institution}
+                    </div>
+                    <span className="text-xs mt-1 sm:mt-0">{edu.period}</span>
                   </li>
                 ))}
               </ul>
             </SectionCard>
 
+
             {/* Certifications */}
             <SectionCard icon={<FaCertificate />} title="Certifications">
-              <ul className="grid sm:grid-cols-2 gap-3 text-sm text-textSecondary">
+              <div className="grid sm:grid-cols-2 gap-4">
                 {resume.certifications.map((cert, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="text-accent mt-1">●</span>
-                    {cert}
-                  </li>
+                  <div
+                    key={i}
+                    className="bg-muted/50 border border-borderSecondary rounded-lg px-4 py-3 space-y-1"
+                  >
+                    <h4 className="font-medium text-textPrimary">{cert.title}</h4>
+                    <p className="italic text-sm text-textSecondary">{cert.provider}</p>
+                    <p className="text-xs text-textSecondary bg-background px-2 py-0.5 rounded inline-block border border-borderSecondary w-fit">
+                      {cert.year}
+                    </p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </SectionCard>
+
+
+
 
             {/* Interests */}
             <SectionCard icon={<FaHeart />} title="Interests">
@@ -160,13 +180,14 @@ export default function ResumePage() {
                 {resume.interests.map((interest, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 text-xs rounded-full bg-muted border border-borderSecondary text-textSecondary"
+                    className="px-3 py-1 text-xs rounded-full bg-background border border-borderSecondary text-textSecondary hover:bg-muted transition"
                   >
                     {interest}
                   </span>
                 ))}
               </div>
             </SectionCard>
+
           </div>
 
           {/* Footer CTA */}

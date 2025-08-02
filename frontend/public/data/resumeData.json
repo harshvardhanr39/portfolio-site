@@ -61,11 +61,34 @@
     }
   ],
   "certifications": [
-    "IS Requirement Management – Dassault Systemes (2023)",
-    "IT-IS Data Management – Dassault Systemes (2021)",
-    "Tableau Essential Training – LinkedIn (2020)",
-    "Excel VBA: Process Modeling – LinkedIn (2020)"
-  ],
+    {
+        "title": "Advanced SQL for Data Scientists",
+        "provider": "LinkedIn Learning",
+        "year": "2020"
+    },
+    {
+        "title": "IS Requirement Management",
+        "provider": "Dassault Systèmes",
+        "year": "2023"
+    },
+    {
+        "title": "Excel VBA: Process Modeling",
+        "provider": "LinkedIn",
+        "year": "2020"
+    },
+    {
+        "title": "IT-IS Data Management",
+        "provider": "Dassault Systèmes",
+        "year": "2021"
+    }
+    ,
+    {
+        "title": "Tableau Essential Training",
+        "provider": "LinkedIn",
+        "year": "2020"
+    }
+    ],
+    
   "projects": [
     {
       "name": "Rush Hour Solver (Internship in France)",
